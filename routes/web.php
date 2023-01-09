@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [StudentController::class, 'index'])->name('students.index');
+Route::get('/', [DashboardController::class, 'viewDashboard']);
+
+Route::get('dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 

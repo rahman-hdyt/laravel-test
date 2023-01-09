@@ -23,8 +23,14 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li
-                    class="sidebar-item active ">
+                <li class="sidebar-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item {{ Request::is('students') ? 'active' : '' }}">
                     <a href="{{ route('students.index') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Siswa</span>
