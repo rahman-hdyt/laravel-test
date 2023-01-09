@@ -13,7 +13,7 @@ class Student extends Model
         'name',
         'age',
         'phone_number',
-        'address'
+        'address',
     ];
 
     public $timestamps = true;

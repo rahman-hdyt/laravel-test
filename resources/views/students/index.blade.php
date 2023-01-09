@@ -41,7 +41,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <button type="button" class="btn btn-success rounded-pill float-end" data-bs-toggle="modal" data-bs-target="#success">
+                    <button type="button" class="btn btn-success rounded-pill float-end" data-bs-toggle="modal" data-bs-target="#addnew">
                         <i class="bi bi-plus"></i> Tambah
                     </button>
                 </div>
@@ -69,7 +69,7 @@
                                 <td>
                                     <div class="buttons d-flex">
                                         {{-- <button type="button" value="{{ $s->id }}" class="btn icon btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#edit"><i class="bi bi-pencil"></i></button> --}}
-                                        <a href="{{ route('students.edit', $student->id) }}" type="button" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
+                                        <a href="#edit{{$student->id}}" class="btn icon btn-primary"  data-bs-toggle="modal"><i class="bi bi-pencil"></i></a>
 
                                         <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                                             @csrf
@@ -88,57 +88,110 @@
         </section>
         <!-- Basic Tables end -->
 
-        <!--store Modal -->
-        <div class="modal fade text-left" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
+        <!-- modal Add -->
+        <div class="modal fade text-left" id="addnew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-success">
                         <h5 class="modal-title white" id="myModalLabel110">Tambah Siswa</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
                     </div>
-                    <form action="{{ route('students.store') }}" method="POST">
+                    <div class="modal-body">
+                        {!! Form::open(['url' => 'store']) !!}
                         @csrf
-                        <div class="modal-body">
-
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
-                                        <label for="basicInput">Nama</label>
-                                        <input type="text" class="form-control" name="name" placeholder="Masukkan Nama">
+                                        {!! Form::label('name', 'Nama') !!}
+                                        {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Masukkan Nama', 'required']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="basicInput">Umur</label>
-                                        <input type="number" class="form-control" name="age" placeholder="15 Tahun">
+                                        {!! Form::label('age', 'Umur') !!}
+                                        {!! Form::number('age', '', ['class' => 'form-control', 'placeholder' => 'Masukkan Umur', 'required']) !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="basicInput">No. HP</label>
-                                        <input type="text" class="form-control" name="phone_number" placeholder="08XXXXXXXXXX">
+                                        {!! Form::label('phone_number', 'No HP') !!}
+                                        {!! Form::text('phone_number', '', ['class' => 'form-control', 'placeholder' => 'No. HP', 'required']) !!}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="basicInput">Alamat</label>
-                                        <textarea type="number" class="form-control" name="address"></textarea>
+                                        {!! Form::label('address', 'Alamat') !!}
+                                        {!! Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Masukkan Alamat', 'rows' => 2 , 'required']) !!}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" value="Simpan" class="btn btn-success ml-1">
-                        </div>
-                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <input type="submit" value="Simpan" class="btn btn-success ml-1"> --}}
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                        {{ Form::close() }}
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- end modal Add -->
+
+        <!-- modal Edit -->
+        @foreach ($students as $student)
+        <div class="modal fade text-left" id="edit{{ $student->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h5 class="modal-title white" id="myModalLabel110">Edit Siswa</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i data-feather="x"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        {!! Form::model($students, ['method' => 'patch', 'route' => ['student.update', $student->id] ]) !!}
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        {!! Form::label('name', 'Nama') !!}
+                                        {!! Form::text('name', $student->name, ['class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        {!! Form::label('age', 'Umur') !!}
+                                        {!! Form::text('age', $student->age, ['class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {!! Form::label('phone_number', 'No HP') !!}
+                                        {!! Form::number('phone_number', $student->phone_number, ['class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {!! Form::label('address', 'Alamat') !!}
+                                        {!! Form::textarea('address', $student->address, ['class' => 'form-control', 'rows' => 2 ]) !!}
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+                        {{ Form::button('<i class="fa fa-check-square-o"></i> Update', ['class' => 'btn btn-success', 'type' => 'submit']) }}
+                        {{ Form::close() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        <!-- end modal Add -->
 
         <!--edit Modal -->
-        <div class="modal fade text-left" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
+        {{-- <div class="modal fade text-left" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-success">
@@ -184,7 +237,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 

@@ -39,6 +39,16 @@ class StudentController extends Controller
         ]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $member = Student::find($id);
+        $input = $request->all();
+        $member->fill($input)->save();
+
+        return redirect()->route('students.index');
+    }
+
+
     public function destroy($id)
     {
         $student = Student::find($id);
