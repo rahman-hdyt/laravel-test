@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/shared/iconly.css">
     <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/pages/fontawesome.css">
     <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/pages/datatables.css">
+    <link rel="stylesheet" href="{{asset('mazer')}}/assets/extensions/@fortawesome/fontawesome-free/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 
@@ -181,7 +182,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                        {{ Form::button('<i class="fa fa-check-square-o"></i> Update', ['class' => 'btn btn-success', 'type' => 'submit']) }}
+                        {{ Form::button('<i class="bi bi-sd-card-fill"></i> Update', ['class' => 'btn btn-success', 'type' => 'submit']) }}
                         {{ Form::close() }}
                     </div>
                 </div>
