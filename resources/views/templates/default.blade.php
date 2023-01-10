@@ -1,5 +1,6 @@
 @include('templates.partial.header')
     <body>
+        <script src="{{asset('mazer')}}/assets/js/initTheme.js"></script>
         <div id="app">
 
             @include('templates.partial.sidebar')

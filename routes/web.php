@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'viewDashboard']);
+Route::get('/', [DashboardController::class, 'viewDashboard'])->name('dashboard');
 
 Route::get('dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
 
