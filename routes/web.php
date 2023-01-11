@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'viewDashboard']);
+Route::get('/', [AuthController::class, 'index'])->name('login');
+
+Route::post('postlogin', [AuthController::class, 'login'])->name('postlogin');
+
+Route::get('signup', [AuthController::class, 'signup'])->name('register');
+
+Route::post('postsignup', [AuthController::class, 'signupsave'])->name('postsignup');
 
 Route::get('dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
 

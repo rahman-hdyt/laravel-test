@@ -4406,6 +4406,23 @@ fieldset:disabled .btn {
     position: relative;
 }
 
+/* Tambahan toggle logout */
+.user-toggle {
+    white-space: nowrap;
+}
+
+.user-toggle:after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+}
+
+.user-toggle:empty:after {
+    margin-left: 0;
+}
+/* end */
+
 .dropdown-toggle {
     white-space: nowrap;
 }

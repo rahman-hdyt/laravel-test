@@ -2,9 +2,6 @@
 
 @section('head')
     <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/shared/iconly.css">
-    <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/pages/fontawesome.css">
-    <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/pages/datatables.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 
 @php
