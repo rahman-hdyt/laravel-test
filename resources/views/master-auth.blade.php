@@ -1,36 +1,60 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 
-<!-- Mirrored from zuramai.github.io/mazer/demo/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 06:35:43 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!-- Mirrored from jobie.dexignzone.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 06:29:47 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mazer Admin Dashboard</title>
-    <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/main/app.css">
-    <link rel="stylesheet" href="{{asset('mazer')}}/assets/css/pages/auth.css">
-    <link rel="shortcut icon" href="{{asset('mazer')}}/assets/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('mazer')}}/assets/images/logo/favicon.png" type="image/png">
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Jobie : jobie Job Portal Admin  Bootstrap 5 Template" />
+	<meta property="og:title" content="Jobie : jobie Job Portal Admin  Bootstrap 5 Template" />
+	<meta property="og:description" content="Jobie : Job Portal  Admin  Bootstrap 5 Template" />
+	<meta property="og:image" content="social-image.png" />
+	<meta name="format-detection" content="telephone=no">
+    <title>Appschool - Academic Portal Admin Dashboard</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('jobie') }}/images/favicon.png">
+    <link href="{{ asset('jobie') }}/css/style.css" rel="stylesheet">
+
+    <link href="{{ asset('jobie') }}/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
 </head>
 
-<body>
-    <div id="auth">
+<body class="h-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
 
-<div class="row h-100">
+					<div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
 
-    @yield('auth')
+                                @yield('auth')
 
-    <div class="col-lg-7 d-none d-lg-block">
-        <div id="auth-right">
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-    </div>
+<!--**********************************
+	Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="{{ asset('jobie') }}/vendor/global/global.min.js"></script>
+<script src="{{ asset('jobie') }}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="{{ asset('jobie') }}/js/custom.min.js"></script>
+<script src="{{ asset('jobie') }}/js/deznav-init.js"></script>
+
 </body>
 
-
-<!-- Mirrored from zuramai.github.io/mazer/demo/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 06:35:43 GMT -->
+<!-- Mirrored from jobie.dexignzone.com/xhtml/page-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 06:30:21 GMT -->
 </html>

@@ -15,7 +15,7 @@
 	<meta property="og:description" content="Jobie : Job Portal  Admin  Bootstrap 5 Template" />
 	<meta property="og:image" content="social-image.png" />
 	<meta name="format-detection" content="telephone=no">
-    <title>Dashboard</title>
+    <title>Appschool - Academic Information System</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('jobie')}}/images/favicon.png">
     <link href="{{asset('jobie')}}/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">

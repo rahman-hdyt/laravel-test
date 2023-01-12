@@ -22,8 +22,8 @@
                             </svg>
                         </span>
                         <div class="media-body text-end feature-icon-text">
-                            <p class="fs-18 text-white mb-2">Interviews</p>
-                            <span class="fs-48 text-white font-w600">86</span>
+                            <p class="fs-18 text-white mb-2">Siswa</p>
+                            <span class="fs-48 text-white font-w600">{{ $students }}</span>
                         </div>
                     </div>
                 </div>
@@ -41,8 +41,8 @@
                             </svg>
                         </span>
                         <div class="media-body text-end feature-icon-text">
-                            <p class="fs-18 text-white mb-2">Apply</p>
-                            <span class="fs-48 text-white font-w600">75</span>
+                            <p class="fs-18 text-white mb-2">Akun</p>
+                            <span class="fs-48 text-white font-w600">{{ $users }}</span>
                         </div>
                     </div>
                 </div>

@@ -216,7 +216,7 @@
                                         <td><strong>{{ $loop->iteration }}</strong></td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="{{asset('jobie')}}/images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">{{ $student->name }}</span>
+                                                <img src="jobie/{{ Session::get('image') }}" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">{{ $student->name }}</span>
                                             </div>
                                         </td>
                                         <td>{{ $student->age }}</td>
@@ -253,7 +253,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
-                    <form action="{{ route('students.store') }}" method="POST">
+                    <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="basic-form">
@@ -273,6 +273,12 @@
                                         <label class="col-sm-3 col-form-label">No. HP</label>
                                         <div class="col-sm-9">
                                             <input type="text" name="phone_number" class="form-control" placeholder="08XXXXXXXXX">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Foto</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" name="image" class="form-file-input form-control @error('image') is-invalid @enderror">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -302,7 +308,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                         </button>
                     </div>
-                    <form action="{{ route('student.update', $student->id) }}" method="post">
+                    <form action="{{ route('student.update', $student->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <div class="modal-body">

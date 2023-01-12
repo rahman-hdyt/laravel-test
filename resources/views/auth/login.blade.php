@@ -1,60 +1,66 @@
 @extends('master-auth')
 
 @section('auth')
-<div class="col-lg-5 col-12">
-    <div id="auth-left">
-        <div class="auth-logo">
-            <a href="index.html"><img src="{{asset('mazer')}}/assets/images/logo/logo.svg" alt="Logo"></a>
+
+<div class="auth-form">
+    <div class="text-center mb-3">
+        <a href="index.html"><img src="{{ asset('jobie') }}/images/appschool.png" alt=""></a>
+    </div>
+    <h4 class="text-center mb-4 text-white">Sign in your account</h4>
+
+    @if (\Session::has('message'))
+        <div class="alert alert-danger alert-dismissible fade show">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+        <strong>Error!</strong> {{ \Session::get('message') }}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+        </button>
         </div>
-        <h1 class="auth-title">Sign Up</h1>
-        <p class="auth-subtitle mb-5">Input your data to log in into Dashboard.</p>
+    @endif
 
-        @if (\Session::has('message'))
-            <div class="alert alert-light-danger color-danger"><i class="bi bi-check-circle-fill"></i>
-                {{ \Session::get('message') }}
-            </div>
-        @endif
-
-        @if (\Session::has('pesan'))
-            <div class="alert alert-light-success color-success"><i class="bi bi-exclamation-circle"></i>
-                {{ \Session::get('pesan') }}
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('postlogin') }}">
-            @csrf
-            <div class="form-group position-relative has-icon-left mb-4">
-                <input type="text" class="form-control form-control-xl" id="email" name="email" placeholder="Username" autofocus>
-                <div class="form-control-icon">
-                    <i class="bi bi-person"></i>
-                </div>
-                @if ($errors->has('email'))
-                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                @endif
-            </div>
-            <div class="form-group position-relative has-icon-left mb-4">
-                <input type="password" class="form-control form-control-xl" id="password" name="password" placeholder="Password">
-                <div class="form-control-icon">
-                    <i class="bi bi-shield-lock"></i>
-                </div>
-                @if ($errors->has('password'))
-                    <span class="text-danger">{{ $errors->first('password') }}</span>
-                @endif
-            </div>
-            <div class="form-check form-check-lg d-flex align-items-end">
-                <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                    Keep me logged in
-                </label>
-            </div>
-            <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Log in</button>
-        </form>
-        <div class="text-center mt-5 text-lg fs-4">
-            <p class="text-gray-600">Don't have an account? <a href="{{ route('register') }}" class="font-bold">Sign
-                    up</a>.</p>
-            <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
+    @if (\Session::has('pesan'))
+        <div class="alert alert-success alert-dismissible fade show">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+        <strong>Success!</strong> {{ \Session::get('pesan') }}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+        </button>
         </div>
+    @endif
 
+    <form method="POST" action="{{ route('postlogin') }}">
+        @csrf
+        <div class="form-group">
+            <label class="mb-1 text-white"><strong>Email</strong></label>
+            <input type="text" class="form-control" placeholder="example@gmail.com" id="email" name="email" autofocus>
+
+            @if ($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+            @endif
+        </div>
+        <div class="form-group">
+            <label class="mb-1 text-white"><strong>Password</strong></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="********">
+
+            @if ($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+            @endif
+        </div>
+        <div class="form-row d-flex justify-content-between mt-4 mb-2">
+            <div class="form-group">
+               <div class="custom-control custom-checkbox ms-1 text-white">
+                    <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
+                    <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <a class="text-white" href="page-forgot-password.html">Forgot Password?</a>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn bg-light text-primary btn-block">Login</button>
+        </div>
+    </form>
+    <div class="new-account mt-3">
+        <p class="text-white">Don't have an account? <a class="text-white" href="{{ route('register') }}">Register</a></p>
     </div>
 </div>
 
