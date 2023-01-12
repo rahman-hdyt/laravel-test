@@ -7,9 +7,9 @@
                 </div> --}}
                 <div class="btn-group align-items-center mt-2">
                     <div class="dropdown">
-                        <a href="" class="user-toggle me-1 d-flex" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('mazer')}}/assets/images/logo/favicon.png" alt="Logo" srcset=""><h6 class="text-muted font-semibold" style="margin-left: 0.5rem;">Dayat</h6></a>
+                        <a href="" class="user-toggle me-1 d-flex" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('mazer')}}/assets/images/logo/favicon.png" alt="Logo" srcset=""><h6 class="text-muted font-semibold" style="margin-left: 0.5rem;">{{ Auth::user()->username }}</h6></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="{{ route('signout') }}">Logout</a>
                         </div>
                     </div>
                 </div>

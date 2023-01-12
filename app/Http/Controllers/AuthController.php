@@ -47,7 +47,7 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect('/');
+        return redirect('/')->with('pesan', 'Registrasi Berhasil, Silahkan Login');
     }
 
     public function create(array $data)
@@ -57,5 +57,13 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function signOut()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return redirect('/');
     }
 }

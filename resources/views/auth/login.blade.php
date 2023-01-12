@@ -10,8 +10,14 @@
         <p class="auth-subtitle mb-5">Input your data to log in into Dashboard.</p>
 
         @if (\Session::has('message'))
-            <div class="alert alert-light-danger color-danger"><i class="bi bi-exclamation-circle"></i>
+            <div class="alert alert-light-danger color-danger"><i class="bi bi-check-circle-fill"></i>
                 {{ \Session::get('message') }}
+            </div>
+        @endif
+
+        @if (\Session::has('pesan'))
+            <div class="alert alert-light-success color-success"><i class="bi bi-exclamation-circle"></i>
+                {{ \Session::get('pesan') }}
             </div>
         @endif
 

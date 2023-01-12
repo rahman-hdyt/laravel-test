@@ -22,6 +22,8 @@ Route::post('postlogin', [AuthController::class, 'login'])->name('postlogin');
 
 Route::get('signup', [AuthController::class, 'signup'])->name('register');
 
+Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
+
 Route::post('postsignup', [AuthController::class, 'signupsave'])->name('postsignup');
 
 Route::get('dashboard', [DashboardController::class, 'viewDashboard'])->name('dashboard');
