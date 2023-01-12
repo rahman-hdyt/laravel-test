@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
     public function index()
     {
-        return view('students.index', [
-            'students' => Student::get(),
-        ]);
+        if (Auth::check()) {
+            return view('students.index', [
+                'students' => Student::get(),
+            ]);
+        }
+        return redirect('/');
     }
 
     public function store(Request $request)
