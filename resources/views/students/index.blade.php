@@ -216,7 +216,7 @@
                                         <td><strong>{{ $loop->iteration }}</strong></td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="jobie/{{ Session::get('image') }}" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">{{ $student->name }}</span>
+                                                <img src="{{ asset($student->image) }}" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">{{ $student->name }}</span>
                                             </div>
                                         </td>
                                         <td>{{ $student->age }}</td>
@@ -278,7 +278,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Foto</label>
                                         <div class="col-sm-9">
-                                            <input type="file" name="image" class="form-file-input form-control @error('image') is-invalid @enderror">
+                                            <input type="file" name="image" id="image" class="form-file-input form-control @error('image') is-invalid @enderror">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
