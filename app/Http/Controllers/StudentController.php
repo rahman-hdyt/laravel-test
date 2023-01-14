@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class StudentController extends Controller
 {
@@ -60,15 +59,6 @@ class StudentController extends Controller
         }
     }
 
-    public function edit($id)
-    {
-        $student = Student::find($id);
-
-        return view('students.edit', [
-            'student' => $student,
-        ]);
-    }
-
     public function update(Request $request, $id)
     {
         $member = Student::find($id);
@@ -85,6 +75,6 @@ class StudentController extends Controller
 
         $student->delete();
 
-        return redirect()->route('students.index')->with('success', 'Siswa Berhasil Dihapus');
+        return redirect()->route('students.index')->with('suscess', 'Siswa Berhasil Dihapus');
     }
 }

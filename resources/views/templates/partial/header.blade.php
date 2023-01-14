@@ -26,6 +26,7 @@
 	<link href="{{asset('jobie')}}/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link href="{{asset('jobie')}}/cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('jobie') }}/vendor/toastr/css/toastr.min.css">
+    <link href="{{ asset('jobie') }}/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 	<link href="{{asset('jobie')}}/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="{{asset('jobie')}}/css/style.css" rel="stylesheet">
 

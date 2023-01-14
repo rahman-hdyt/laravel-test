@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Exam Toppers</h4>
+                        <h4 class="card-title"></h4>
                         <button type="button" class="btn btn-rounded btn-xs btn-success float-end" data-bs-toggle="modal" data-bs-target="#tambah-siswa"><i class="fa fa-plus color-info" style="margin-right: .2rem;"></i> Tambah</button>
                     </div>
                     <div class="card-body">
@@ -59,7 +59,7 @@
                                                 <form action="{{ route('students.destroy', $student->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-danger shadow btn-xs sharp btn sweet-confirm"><i class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
                                         </td>
@@ -179,12 +179,16 @@
         @endforeach
         <!-- end -->
     </div>
+
 @endsection
 
 @section('script')
     <script data-cfasync="false" src="{{asset('jobie')}}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="{{asset('jobie')}}/vendor/global/global.min.js"></script>
 	<script src="{{asset('jobie')}}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+    <script src="{{asset('jobie')}}/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="{{asset('jobie')}}/js/plugins-init/sweetalert.init.js"></script>
 
     <!-- Toastr -->
     <script src="{{asset('jobie')}}/vendor/toastr/js/toastr.min.js"></script>
@@ -218,6 +222,21 @@
                 toastr.success('{{ Session::get('success') }}');
             @endif
         });
+
+        document.querySelector(".sweet-confirm").onclick = function () {
+
+        swal({
+            title: "Hapus Data Siswa",
+            text: "Data akan terhapus permanen !!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Hapus",
+            closeOnConfirm: !1
+        }, function () {
+            swal("Deleted !!", "Hey, your imaginary file has been deleted !!", "success")
+        })
+        }
 
     </script>
 @endsection
