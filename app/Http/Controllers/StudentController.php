@@ -85,6 +85,6 @@ class StudentController extends Controller
 
         $student->delete();
 
-        return redirect()->route('students.index')->with('toastr.success', 'Siswa Berhasil Dihapus');
+        return redirect()->route('students.index')->with('success', 'Siswa Berhasil Dihapus');
     }
 }
