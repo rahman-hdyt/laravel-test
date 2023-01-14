@@ -51,9 +51,13 @@ class StudentController extends Controller
         $path = $request->file('image')->storeAs('images', $fileName, 'public');
         $requestData["image"] = '/storage/' . $path;
 
-        Student::create($requestData);
+        $student = Student::create($requestData);
 
-        return redirect()->route('students.index')->with('flash_message', 'Siswa Berhasil Ditambahkan!');
+        if ($student) {
+            return redirect()->route('students.index')->with('success', 'Siswa Berhasil Ditambahkan!');
+        } else {
+            return back()->with('failed', 'Failed! User not created');
+        }
     }
 
     public function edit($id)
@@ -81,6 +85,6 @@ class StudentController extends Controller
 
         $student->delete();
 
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('toastr.success', 'Siswa Berhasil Dihapus');
     }
 }

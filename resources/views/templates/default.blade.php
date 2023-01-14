@@ -85,7 +85,7 @@
     <script src="{{asset('jobie')}}/js/custom.min.js"></script>
 	<script src="{{asset('jobie')}}/js/deznav-init.js"></script>
 	<script src="{{asset('jobie')}}/js/demo.js"></script>
-    <script src="{{asset('jobie')}}/js/styleSwitcher.js"></script>
+    {{-- <script src="{{asset('jobie')}}/js/styleSwitcher.js"></script> --}}
 
 </body>
 
