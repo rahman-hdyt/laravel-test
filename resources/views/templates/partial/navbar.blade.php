@@ -19,7 +19,7 @@
                     </li>
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
-                            <img src="{{asset('jobie')}}/images/profile/17.jpg" width="20" alt=""/>
+                            <img src="{{ Auth::user()->image }}" width="20" alt=""/>
                             <div class="header-info p-2">
                                 <span class="text-black">{{ Auth::user()->username }}</span>
                             </div>

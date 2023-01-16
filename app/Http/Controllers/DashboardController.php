@@ -14,7 +14,7 @@ class DashboardController extends Controller
         if (Auth::check()) {
             return view('dashboard', [
                 'students' => Student::count(),
-                'users' => User::count()
+                'users' => User::count(),
             ]);
         }
         return redirect('/');

@@ -18,11 +18,11 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
                 ->with('success', 'Login Berhasil!');
@@ -36,25 +36,49 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+    // public function signupsave(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'username' => 'required',
+    //         'email' => 'required|email|unique:users',
+    //         'password' => 'required|min:1',
+    //     ]);
+
+    //     $data = $request->all();
+    //     $check = $this->create($data);
+
+    //     return redirect('/')->with('register_success', 'Silahkan Login');
+    // }
+
     public function signupsave(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'username' => 'required',
             'email' => 'required|email|unique:users',
+            'image' => '',
             'password' => 'required|min:1',
         ]);
 
         $data = $request->all();
+
+        $fileName = time() . $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('images', $fileName, 'public');
+        $data["image"] = '/storage/' . $path;
+
         $check = $this->create($data);
 
-        return redirect('/')->with('register_success', 'Registrasi Berhasil, Silahkan Login');
+        return redirect('/')->with('register_success', 'Silahkan Login');
     }
 
     public function create(array $data)
     {
         return User::create([
+            'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
+            'image' => $data['image'],
             'password' => Hash::make($data['password']),
         ]);
     }
