@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -63,6 +64,11 @@ class StudentController extends Controller
     {
         $member = Student::find($id);
         $input = $request->all();
+
+        $fileName = time() . $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->storeAs('images', $fileName, 'public');
+        $input["image"] = '/storage/' . $path;
+
         $member->fill($input)->save();
 
         return redirect()->route('students.index');
@@ -71,10 +77,14 @@ class StudentController extends Controller
 
     public function destroy($id)
     {
-        $student = Student::find($id);
+        // $student = Student::find($id);
 
-        $student->delete();
+        // $student->delete();
 
-        return redirect()->route('students.index')->with('suscess', 'Siswa Berhasil Dihapus');
+        // return redirect()->route('students.index');
+
+        DB::table('students')->where('id', $id)->delete();
+
+        return redirect()->route('students.index');
     }
 }

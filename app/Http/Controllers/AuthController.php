@@ -25,10 +25,10 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
-                ->with('message', 'Berhasil Login!');
+                ->with('success', 'Login Berhasil!');
         }
 
-        return redirect('/')->with('message', 'Login Gagal!');
+        return redirect('/')->with('login_fail', 'Login Gagal!');
     }
 
     public function signup()
@@ -47,7 +47,7 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect('/')->with('pesan', 'Registrasi Berhasil, Silahkan Login');
+        return redirect('/')->with('register_success', 'Registrasi Berhasil, Silahkan Login');
     }
 
     public function create(array $data)
@@ -64,6 +64,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/')->with('logout_success', 'Anda telah logout');
     }
 }

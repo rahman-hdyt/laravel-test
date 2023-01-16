@@ -417,9 +417,13 @@
 	<!-- Dashboard 1 -->
 	<script src="{{asset('jobie')}}/js/dashboard/dashboard-1.js"></script>
 
+    <!-- Toastr -->
+    <script src="{{asset('jobie')}}/vendor/toastr/js/toastr.min.js"></script>
+
+    <!-- All init script -->
+    <script src="{{asset('jobie')}}/js/plugins-init/toastr-init.js"></script>
+
     <script>
-
-
 		function carouselReview(){
 			/*  testimonial one function by = owl.carousel.js */
 			function checkDirection() {

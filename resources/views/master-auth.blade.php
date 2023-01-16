@@ -18,6 +18,7 @@
 	<meta name="format-detection" content="telephone=no">
     <title>Appschool - Academic Portal Admin Dashboard</title>
     <!-- Favicon icon -->
+    <link rel="stylesheet" href="{{ asset('jobie') }}/vendor/toastr/css/toastr.min.css">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('jobie') }}/images/favicon.png">
     <link href="{{ asset('jobie') }}/css/style.css" rel="stylesheet">
 
@@ -53,6 +54,14 @@
 <script src="{{ asset('jobie') }}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('jobie') }}/js/custom.min.js"></script>
 <script src="{{ asset('jobie') }}/js/deznav-init.js"></script>
+
+<!-- Toastr -->
+<script src="{{asset('jobie')}}/vendor/toastr/js/toastr.min.js"></script>
+
+<!-- All init script -->
+<script src="{{asset('jobie')}}/js/plugins-init/toastr-init.js"></script>
+
+@include('templates.partial.script')
 
 </body>
 

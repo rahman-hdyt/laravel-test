@@ -162,9 +162,15 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Foto</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" name="image" id="image" value="{{ $student->image }}" class="form-file-input form-control">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Address</label>
                                         <div class="col-sm-9">
-                                            <textarea type="text" name="address" value="{{ $student->address }}" class="form-control" placeholder=""></textarea>
+                                            <textarea type="text" name="address" class="form-control" placeholder="">{{{ $student->address }}}</textarea>
                                         </div>
                                     </div>
                             </div>
@@ -195,49 +201,5 @@
 
     <!-- All init script -->
     <script src="{{asset('jobie')}}/js/plugins-init/toastr-init.js"></script>
-
-    <script>
-
-    $(document).ready(function() {
-            toastr.options.timeOut = 500000000;
-            toastr.options.closeButton= !0;
-            toastr.options.debug= !1;
-            toastr.options.newestOnTop= !0;
-            toastr.options.progressBar= !0;
-            toastr.options.positionClass= "toast-top-right";
-            toastr.options.preventDuplicates= !0;
-            toastr.options.onclick= null;
-            toastr.options.showDuration= "300";
-            toastr.options.hideDuration= "1000";
-            toastr.options.extendedTimeOut= "1000";
-            toastr.options.showEasing= "swing";
-            toastr.options.hideEasing= "linear";
-            toastr.options.showMethod= "fadeIn";
-            toastr.options.hideMethod= "fadeOut";
-            toastr.options.tapToDismiss= !1;
-
-            @if (Session::has('error'))
-                toastr.error('{{ Session::get('error') }}');
-            @elseif(Session::has('success'))
-                toastr.success('{{ Session::get('success') }}');
-            @endif
-        });
-
-        document.querySelector(".sweet-confirm").onclick = function () {
-
-        swal({
-            title: "Hapus Data Siswa",
-            text: "Data akan terhapus permanen !!",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Hapus",
-            closeOnConfirm: !1
-        }, function () {
-            swal("Deleted !!", "Hey, your imaginary file has been deleted !!", "success")
-        })
-        }
-
-    </script>
 @endsection
 

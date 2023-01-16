@@ -87,6 +87,8 @@
 	<script src="{{asset('jobie')}}/js/demo.js"></script>
     {{-- <script src="{{asset('jobie')}}/js/styleSwitcher.js"></script> --}}
 
+    @include('templates.partial.script')
+
 </body>
 
 <!-- Mirrored from jobie.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 06:29:43 GMT -->
