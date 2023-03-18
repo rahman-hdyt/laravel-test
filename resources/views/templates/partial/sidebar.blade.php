@@ -7,6 +7,12 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
+            <li class="{{ Request::is('kelass') ? 'active' : '' }}">
+                <a href="{{ route('kelass.index') }}" class="ai-icon" aria-expanded="false">
+                    <i class="la la-users"></i>
+                    <span class="nav-text">Kelas</span>
+                </a>
+            </li>
             <li class="{{ Request::is('students') ? 'active' : '' }}">
                 <a href="{{ route('students.index') }}" class="ai-icon" aria-expanded="false">
                     <i class="la la-users"></i>

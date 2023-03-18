@@ -18,6 +18,7 @@
     <title>Appschool - Academic Information System</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('jobie')}}/images/favicon.png">
+    @yield('head')
     <link href="{{asset('jobie')}}/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('jobie')}}/vendor/chartist/css/chartist.min.css">
 	<!-- Vectormap -->
@@ -29,7 +30,5 @@
     <link href="{{ asset('jobie') }}/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 	<link href="{{asset('jobie')}}/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="{{asset('jobie')}}/css/style.css" rel="stylesheet">
-
-    @yield('head')
 
 </head>
